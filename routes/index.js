@@ -57,8 +57,17 @@ router.get('/item', function(req, res, next) {
         data.url='/loginout';
         data.loginstatu='注销';
     }
+    data.title =req.query.title;
+    data.pice =req.query.pice;
 
-    res.render('item.html', {data:data });
+    //获得前端传递的数据
+    // console.log("title",title)
+    // console.log("pice",pice)
+    // console.log("data",data)
+    //调用数据库，查询商品详细表，获得数据
+    //设置数据体
+    //传递数据体，跳转页面
+    res.render('item.html', { data:data });
     // res.render('item.html', { title: '品优购 - 优质！优质！' ,userName:'你好！，请登录'});
 });
 
