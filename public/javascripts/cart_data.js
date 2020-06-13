@@ -15,7 +15,8 @@ $(function () {
     function delAllClick() {
         var delAllBtn = $('#delAllBtn');
         delAllBtn.on('click', function () {
-            $(".choice").each(function () {//先循环每个小计
+            //先循环每个复选框
+            $(".choice").each(function () {
                 if (($(this).parents("tr").find(".choice")).prop("checked")) {//判断复选框有没有选中
                   /*  $.ajax({
                         url: "/cart/deletcart",
@@ -31,6 +32,7 @@ $(function () {
                             }
                         }
                     });*/
+                  // 选中就移除
                   $(this).parents("tr").remove();
                 }
             });
@@ -45,8 +47,10 @@ $(function () {
 
         $("#toggle-all").click(function()
         {
+            // 判断是否已经选中
             if($(this).is(":checked")==true)
             {
+                // 没选中就全选
                 $("input[name='chkBulletin']").each(function()
                 {
                     $(this) .prop('checked', true);
@@ -55,6 +59,7 @@ $(function () {
             }
             else
             {
+                // 选中就取消全选
                 $("input[name='chkBulletin']").each(function()
                 {
                     $(this).prop('checked', false);

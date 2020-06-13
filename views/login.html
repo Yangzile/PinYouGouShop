@@ -8,17 +8,22 @@
         <div class="py-container login">
             <div class="loginform">
                 <!--<ul class="sui-nav nav-tabs tab-wraped">-->
+                <!--标题盒子-->
                 <ul class="nav nav-tabs tab-content">
                     <li class="asideLi" id="shaoma"><a href="#index" data-toggle="tab">扫描登录</a></li>
                     <li class="asideLi active" id="denglu"><a href="#profile" data-toggle="tab">账户登录</a></li>
                 </ul>
+                <!--内容盒子-->
                 <div class="tab-content tab-wraped">
+                    <!--扫码登录盒子-->
                     <div id="index" class="tab-pane ">
                         <p>
                             <img src="images/二维码.jpg" alt="" style="margin-top:50px;">
                         </p>
                     </div>
+                    <!--账号登录盒子-->
                     <div id="profile" class="tab-pane active">
+                        <!--表单-->
                         <form class="form" method="post" id="#loginform" name="login-form"  action="/login">
                             <div class="input-prepend">
                                 <span class="add-on loginname"></span>
@@ -32,11 +37,12 @@
                                 <label class="checkbox inline"><input name="m1" type="checkbox" checked> 自动登录</label>
                                 <span class="forget">忘记密码？</span>
                             </div>
+                            <!--登录按钮-->
                             <div class="logined">
                                 <button class="btn btn-block btn-xlarge btn-danger" type="button" id="login-btn" name="login-btn">登&nbsp;&nbsp;录</button>
                             </div>
                         </form>
-
+                        <!--第三方登录-->
                         <div class="registration">
                             <ul>
                                 <li>
@@ -52,7 +58,7 @@
                                     <a href="#"></a>
                                 </li>
                             </ul>
-
+                            <!--注册-->
                             <a href="/register">立即注册</a>
                         </div>
                     </div>
@@ -61,27 +67,5 @@
         </div>
     </div>
 
-     <script >
-         // $(function () {
-         // //开始
-         //     $("#login-btn").click(function() {
-         //         $.ajax({
-         //             url: "/login",
-         //             type: "post",
-         //             data: {
-         //                 userName: $("#user").val(),
-         //                 passWord: $("#pass").val(),
-         //             },
-         //             success: function(data){    //   alert后台的返回值
-         //                 if (data)
-         //                     alert(data);
-         //             },
-         //             error: function(){
-         //                 alert('访问失败');
-         //             }
-         //         });
-         //     });
-         // });
-     </script>
 <script  src="javascripts/login-check.js"></script>
 <% include login-footer.html %>

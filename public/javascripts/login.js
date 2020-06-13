@@ -1,13 +1,4 @@
 $(function () {
-
-    // // 相关分类
-    // var tabs = document.querySelectorAll(" .asideLi");
-    // var goods = document.querySelectorAll(".aside .tab-pane");
-    // tabFunc(tabs, goods);
-    //
-    // // 商品介绍
-    // var tabs1 = document.querySelectorAll(".detail .asideLi");
-    // var goods1 = document.querySelectorAll(".detail .tab-pane");
     // 扫码标题
     var shaoma=document.getElementById("shaoma");
     // 登录标题
@@ -41,5 +32,5 @@ $(function () {
             profile.classList.add("active");
         };
     };
-    // window.tabFunc = tabFunc;
+
 })
