@@ -106,7 +106,7 @@ router.get('/cart', function(req, res, next) {
         data.loginstatu='免费注册';
         data.userName= '你好！，请登录';
     }
-    var sql='SELECT cart.number,list.pice,list.attr,list.img,list.sold,list.kucun,list.Id FROM cart,list WHERE cart.listID = list.Id and cart.userID =? ' ;
+    var sql='SELECT cart.number,list.pice,list.attr,list.img,list.sold,list.kucun,list.Id,cart.item_arry FROM cart,list WHERE cart.listID = list.Id and cart.userID =? ' ;
     var  userID= req.session.userName;
     if(userID == undefined){
         return;
@@ -116,7 +116,8 @@ router.get('/cart', function(req, res, next) {
             console.log(err);
             return res.send({ "error": 403, "message": "数据库异常！" });
         }
-        // console.log(result);
+
+        // console.log("购物车数据：",result);
         return res.render('carts.html', { data:data ,arr:result });
     });
 

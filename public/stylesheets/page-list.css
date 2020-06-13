@@ -345,3 +345,13 @@ ul.logo-list li {
 .yui3-u-1-5 .operate a {
     color: #fff;
 }
+.attr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.attr>em{
+
+    font-size: 20px;
+    font-weight: 400;
+}

@@ -8,15 +8,18 @@ $(function () {
         var index=$(this).attr("data-slide-to")
         $('#myCarousel').carousel(parseInt(index))
     })
+    // 关闭广告
     $('#gg').click(function () {
         $('header').remove();
     })
+    // 小导航栏的鼠标移入，移出
     $(".dropdown").mouseover(function () {
         $(this).addClass("open");
     });
     $(".dropdown").mouseleave(function(){
         $(this).removeClass("open");
     })
+    //商品分类的鼠标事件
     $(".content-col1.fl").find("li").each(function () {
         $(this).mouseenter(function () {
             $(this).find("div").show();
@@ -25,6 +28,7 @@ $(function () {
             $(this).find("div").hide();
         });
     })
+    // 猜你喜欢的商品跳转
     $('.pic img').each(function () {
         $(this).click(function(){
             var title = $(this).parent().siblings().children("p:eq(0)").text()

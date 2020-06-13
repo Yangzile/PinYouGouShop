@@ -156,7 +156,7 @@ $(function () {
 
         for(let i=0;i<$(".choice").length;i++){
 
-            if($(".choice")[i].checked==true){ //注意此块用jquery不好实现
+            if($(".choice")[i].checked==true){
                 counts+=parseInt( $('.itxt')[i].value);
             }
         }

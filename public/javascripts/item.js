@@ -10,8 +10,6 @@ $(function () {
     var tabs1 = document.querySelectorAll(".detail .asideLi");
     var goods1 = document.querySelectorAll(".detail .tab-pane");
     tabFunc(tabs1, goods1);
-
-
     function tabFunc(tabs, goods) {
         for (var i = 0; i < tabs.length; i++) {
             tabs[i].setAttribute('index', i);
@@ -27,15 +25,7 @@ $(function () {
         }
     };
 
-/*    function tab(tabs,goods){
-        tabs.find("li").each(function () {
-            $(this).onmouseenter(function () {
-                $(this).addClass("active").siblings().removeClass("active");
-                goods.
-            })
-        })
-    }*/
-
+// 加入购物车
 $('#addcart').click(function () {
         var listName=$('#biaoti').html();
         var number=$('.itxt').val();
@@ -66,20 +56,18 @@ $('#addcart').click(function () {
                     success: function (response) {
                         if (response.success) {
                             alert("添加成功前端");
-                            // setTimeout(function () {
-                            //     location.href = "/";
-                            // }, 2000);
                         } else {
                             alert("添加失败前端: " + response.message);
                         }
                     }
                 });
         }else{
+            // 没有登录
             location.href = "/login";
         }
 
     })
-
+// 商品属性选项切换
 $('#specification').find("dd").find("a").each(function () {
     $(this).click(function () {
         $(this).addClass("selected").siblings().removeClass("selected");
@@ -87,12 +75,13 @@ $('#specification').find("dd").find("a").each(function () {
 })
 
 
-
+// 点击+事件
  $("#plus").click(function () {
         var count = parseFloat($(this).siblings("input").val());
         console.log(count);
         $(this).siblings("input").prop("value",++count);
     });
+// 点击-事件
 $("#mins").click(function () {
     var count = parseFloat($(this).siblings("input").val());
    if(count>1){

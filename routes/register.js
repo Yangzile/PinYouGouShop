@@ -12,7 +12,6 @@ router.use(function(req,res,next) {
     next();
 })
 
-
 router.get('/', function(req, res, next) {
     res.render('register.html', { title: '注册' });
 });

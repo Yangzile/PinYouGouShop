@@ -269,7 +269,7 @@ a.sum-btn {
 	width: 22px;
 	border: 0;
 	border-radius: 0;
-	background: #ddd;
+	/*background: #ddd;*/
 }
 
 
@@ -318,6 +318,7 @@ a.sum-btn {
 	/*margin-right: 20px;*/
 	padding: 20px 0;
 	width: 317px;
+	font-size: 18px;
 }
 
 .success-cart {
@@ -856,4 +857,15 @@ ul.send-detail li {
 .helpLink>.space{
 	width: 0;
 	height: 0;
+}
+.toggle-row{
+	padding: 10px 0px;
+}
+.toggle-row>td{
+	padding: 10px 0px;
+}
+.item-chose{
+	width: 317px;
+	font-size: 12px;
+	color: #9c9692;
 }

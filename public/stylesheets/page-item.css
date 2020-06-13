@@ -112,6 +112,7 @@ em {
 
 .sku-name h4 {
     font-weight: 700;
+    font-size: 20px;
 }
 
 .news {
@@ -188,9 +189,7 @@ em {
     overflow: hidden;
     width: 13px;
     height: 13px;
-    background: url(../images/choosed.png) no-repeat;
-    _right: -1px;
-    _bottom: -1px;
+
 }
 
 .summary-wrap .selected span {
@@ -764,4 +763,7 @@ i.icon-tb-wangfill {
 
 .nav.nav-tabs.tab-wraped.column5>li {
     width: 20%;
+}
+.goods-list>li{
+    width: 100%;
 }

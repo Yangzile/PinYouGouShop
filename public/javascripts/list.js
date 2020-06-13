@@ -1,4 +1,5 @@
 $(function () {
+    // 点击商品传参跳转
 $(".operate span ,.p-img img ").each(function () {
     $(this).click(function(){
         var title = $(this).parent().parent().siblings(".attr").find("em").text()

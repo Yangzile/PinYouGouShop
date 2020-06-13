@@ -22,7 +22,7 @@
         <tbody>
 
 <%for(var i=0;i< arr.length ; i++) {%>
-        <tr data-id="1">
+        <tr data-id="1" class="toggle-row">
             <td>
                 <input data-id="1" class="choice " type="checkbox"  name='chkBulletin'>
             </td>
@@ -33,6 +33,7 @@
                         <img src="<%= arr[i].img%>">
                     </div>
                     <div class="item-msg" id="item-msg"><%= arr[i].attr%></div>
+                    <div class="item-chose" ><%= arr[i].item_arry%></div>
                 </div>
             </td>
             <td>
@@ -41,9 +42,9 @@
             <td>
                 <div class="clearfix have">
                     <div>
-                        <a href="#" class="increment mins ">-</a>
+                        <a  class="increment mins ">-</a>
                         <input autocomplete="off" type="text" value="<%= arr[i].number%>" minnum="1" class="itxt">
-                        <a href="#" class="increment plus ">+</a>
+                        <a  class="increment plus ">+</a>
                     </div>
                     <%if( 0< arr[i].kucun ) {%>
                     <div class="youhuo">有货</div>
@@ -60,7 +61,7 @@
                 <div>
                     <a class="delGood" data-id="1" href="#">删除</a>
                 </div>
-                <div>移到我的关注</div>
+                <div><a>移到我的关注</a></div>
             </td>
         </tr>
         <%}%>
