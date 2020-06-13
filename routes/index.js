@@ -57,18 +57,42 @@ router.get('/item', function(req, res, next) {
         data.url='/loginout';
         data.loginstatu='注销';
     }
-    data.title =req.query.title;
-    data.pice =req.query.pice;
+    var title =req.query.title;
+    var pice =Number(req.query.pice);
 
     //获得前端传递的数据
     // console.log("title",title)
     // console.log("pice",pice)
     // console.log("data",data)
+
+    var alldata={};
     //调用数据库，查询商品详细表，获得数据
-    //设置数据体
-    //传递数据体，跳转页面
-    res.render('item.html', { data:data });
-    // res.render('item.html', { title: '品优购 - 优质！优质！' ,userName:'你好！，请登录'});
+    var sql='SELECT * FROM list WHERE attr =? and pice =?' ;
+    mysql.queryArgs(sql,[title,pice], function (err, result) {
+        if(err){
+            console.log(err);
+            return res.send({ "error": 403, "message": "数据库异常！" });
+        }
+        // console.log(result);
+        alldata=result[0];
+        //设置数据体
+        // console.log(alldata);
+        var  item_data_now=[];
+        var row=[];
+        var item_row=alldata.item_data.split(".");
+        item_row.forEach(function (item) {
+            row =item.split(",")
+            item_data_now.push(row);
+        })
+        console.log("item_data_now修改后的数据：",item_data_now)
+        alldata.item_data=item_data_now;
+        alldata.pice=alldata.pice.toString();
+        console.log("alldata",alldata)
+        //传递数据体，跳转页面
+        return res.render('item.html', { data ,alldata });
+    });
+
+
 });
 
 router.get('/cart', function(req, res, next) {
@@ -138,10 +162,11 @@ router.get('/cart/addcart', function(req, res, next) {
 
     var userName= req.session.userName;
     var listName =req.query.listName;
-    // var number =parsenInt(req.query.number);
     var number =req.query.number;
     number=Number(number);
-    // console.log(typeof (number));
+    var  item_arry =req.query.item_arry;
+    item_arry=item_arry.toString();
+    console.log("item_arry",item_arry)
     var sql_listID= "select Id from list where attr ='"+listName+"'";
     mysql.query(sql_listID,function (err, result) {
         if(err){
@@ -150,7 +175,7 @@ router.get('/cart/addcart', function(req, res, next) {
         }
         var listID=result[0].Id;
         // console.log(typeof(listID));
-        var sql_add=" insert into cart(userID,listID,number) values('"+userName+"',"+listID+","+number+")"
+        var sql_add=" insert into cart(userID,listID,number,item_arry) values('"+userName+"',"+listID+","+number+","+"'"+item_arry+"'"+")"
         mysql.query(sql_add,function (err, result){
             if(err){
                 console.log(err);
@@ -193,7 +218,6 @@ router.get('/cart/deletcart', function(req, res, next) {
                 console.log(err);
                 return res.send({ "error": 403, "message": "错误！" });
             }
-            // else  return  res.send({ "success": true });
             if(result!=null){
                 console.log('删除成功');
                 return  res.send({ "success": true });

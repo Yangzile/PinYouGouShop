@@ -16,13 +16,7 @@ router.use(function(req,res,next) {
 router.get('/', function(req, res, next) {
     res.render('register.html', { title: '注册' });
 });
-router.post('/', function(req, res, next) {
-        res.statusCode =302;
-        res.statusMessage='Found';
-        res.setHeader('location','/login');
-        res.end();
-    // res.render('login.html', { title: '登录' });
-});
+
 router.post('/user', function(req, res, next) {
 
     if (!req.body.userName) return res.send({ "error": 403, "message": "用户名未填写！" });
@@ -42,12 +36,12 @@ router.post('/user', function(req, res, next) {
         var isTrue = false;
         if (err) {
             console.log('查询全部失败');
-            throw err;
+            // throw err;
             return res.send({ "error": 403, "message": "查询sql数据库异常！" });
         }    //查询全部错误信息
         if(result){ //获取用户列表，循环遍历判断当前用户是否存在
             for (var i=0;i<result.length;i++) {
-                if(result[i].userName == name && result[i].passWord == pwd) {
+                if(result[i].userName == name ) {
                     isTrue = true;
                     console.log('用户已存在');
                     return res.send({ "error": 403, "message": "用户名已经存在!!!" });
@@ -58,7 +52,7 @@ router.post('/user', function(req, res, next) {
             mysql.queryArgs(sql,user,function (err, result) {
                 if (err){
                         console.log('插入sql注册失败');
-                        throw err;
+                        // throw err;
                         return res.send({ "error": 403, "message": "数据库异常！" });
                 } else {
                         console.log('注册成功后端');

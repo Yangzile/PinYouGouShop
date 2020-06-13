@@ -27,11 +27,11 @@ $(function () {
     })
     $('.pic img').each(function () {
         $(this).click(function(){
-            var title = $(this).parent().siblings().children("p").text()
+            var title = $(this).parent().siblings().children("p:eq(0)").text()
             var pice = $(this).parent().siblings().children("h3").text()
             pice=pice.replace("¥", "");
             var herf ='/item?'+'title='+title+'&pice='+pice
-            // console.log("herf",herf)
+            console.log("herf",herf)
             $(this).parent().attr('href',herf);
             // console.log("pice",pice )
             // $.ajax({

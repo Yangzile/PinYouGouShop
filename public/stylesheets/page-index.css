@@ -25,6 +25,7 @@
 }
 .content-col1 ul{
     padding: 20px 0;
+    position: relative;
 }
 .content-col1 ul li{
 padding-left: 12px;
@@ -57,8 +58,8 @@ padding-left: 12px;
 
 .all-sort-list2 .item-list {
     position: absolute;
-    top: 242px;
-    left: 369px;
+    top: 0px;
+    left: 205px;
     z-index: 9999!important;
     display: none;
     width: 787px;

@@ -13,13 +13,13 @@
                     <% for( var i=0;i< arr.length;i++){%>
                     <li class="yui3-u-1-5">
                         <div class="p-img">
-                            <a href="/item"><img src="<%=arr[i].img %>"></a>
+                            <a ><img src="<%=arr[i].img %>"></a>
                         </div>
                         <div class="attr"><em><%=arr[i].attr %></em></div>
                         <div class="price"><strong><em>¥</em><i><%=arr[i].pice%></i></strong><s>￥<%=arr[i].ypice%></s></div>
                         <div class="sold"><span>已售<%=arr[i].sold%></span><img src="./uploads/state_07.png" alt=""><span>剩余<%=arr[i].kucun%>件</span></div>
                         <div class="operate">
-                            <a href="/item">立即抢购</a>
+                            <a><span style="display: block">立即抢购</span></a>
                         </div>
                     </li>
                     <%}%>
@@ -155,4 +155,5 @@
     </script>
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/common.js"></script>-->
+<script  src="javascripts/list.js"></script>
 <% include index-footer.html  %>

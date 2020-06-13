@@ -432,3 +432,26 @@ h3 .go {
 #tip{
     margin-left: 111px   ;
 }
+/* }验证码 */
+.coderow{
+    display: flex;
+    align-items: center;
+
+}
+#checkcode{
+    width: 120px;
+    height: 35px;
+}
+#code{
+    margin: 0 10px;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    background-color: rgb(230, 224, 235);
+    color: red;
+    border: none;
+    border-radius: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+}

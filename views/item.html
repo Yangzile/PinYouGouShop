@@ -2,12 +2,12 @@
     <div class="main">
         <div class="py-container">
             <div class="crumb-wrap">
-                <ul class="sui-breadcrumb">
+                <!-- <ul class="sui-breadcrumb">
                     <li><a href="#">手机、数码、通讯</a></li>
                     <li><a href="#">手机</a></li>
                     <li><a href="#">Apple苹果</a></li>
                     <li class="active">iphone 6S系类</li>
-                </ul>
+                </ul> -->
             </div>
             <!--product-info-->
             <div class="product-info">
@@ -16,29 +16,18 @@
                     <div class="zoom">
                         <!--默认第一个预览-->
                         <div id="preview" class="spec-preview">
-                            <img class="xzoom" xoriginal="uploads/b1.png" src="uploads/s1.png" width="100%">
-                        </div>
-                        <!--下方的缩略图-->
-                        <div class="spec-scroll">
-                            <a href="uploads/b1.png"><img class="xzoom-gallery" src="uploads/s1.png" width="60"></a>
-                            <a href="uploads/b2.png"><img class="xzoom-gallery" src="uploads/s2.png" width="60"></a>
-                            <a href="uploads/b3.png"><img class="xzoom-gallery" src="uploads/s3.png" width="60"></a>
-                            <a href="uploads/b1.png"><img class="xzoom-gallery" src="uploads/s1.png" width="60"></a>
-                            <a href="uploads/b2.png"><img class="xzoom-gallery" src="uploads/s2.png" width="60"></a>
-                            <span class="prev">
-                                <</span> <span class="next">>
-                            </span>
+                            <img class="xzoom" xoriginal="<%=alldata.item_img%>" src="<%=alldata.item_img%>" width="100%">
                         </div>
                     </div>
                 </div>
                 <div class="fr itemInfo-wrap">
                     <div class="sku-name">
-                        <h4 id="biaoti"><%=data.title%></h4>
+                        <h4 id="biaoti"><%=alldata.attr%></h4>
                     </div>
                     <div class="summary">
                         <div class="summary-wrap">
                             <div class="fl title"><i>价　　格</i></div>
-                            <div class="fl price"><i>¥</i><em><%=data.pice%></em> <s>降价通知</s></div>
+                            <div class="fl price"><i>¥</i><em><%=alldata.pice%></em> <s>降价通知</s></div>
                             <div class="fr remark"><i>累计评价</i><em>612188</em></div>
                         </div>
                         <div class="summary-wrap">
@@ -67,19 +56,21 @@
                         </div>
                     </div>
                     <div class="clearfix choose" >
+
                         <div id="specification" class="summary-wrap clearfix">
+                            <% for(var i =0 ;i< alldata.item_data.length;i++){%>
                             <dl>
-                                <dt class="fl title"><i>选择颜色</i></dt>
+
+                                <dt class="fl title"><i><%=alldata.item_data[i][0]%></i></dt>
                                 <dd class="btn-group" >
-                                    <!--<a href="#" class="selected">金色</a>-->
-                                    <a href="#" class="btn selected">金色</a>
-                                    <a href="#" class="btn">银色</a>
-                                    <a href="#" class="btn">黑色</a>
-                                    <a href="#" class="btn">玫瑰金</a>
+                                    <% for(var j =1 ;j< alldata.item_data[i].length;j++){%>
+                                    <a  class="btn "><%=alldata.item_data[i][j]%></a>
+                                    <%}%>
                                 </dd>
                             </dl>
-                            <dl>
-                                <dt class="fl title"><i>选择版本</i></dt>
+                            <%}%>
+<!--                            <dl>
+                                <dt class="fl title"><i></i></dt>
                                 <dd  class="btn-group">
                                     <a href="#" class="selected btn">公开版</a>
                                     <a href="#" class="btn">移动4G</a>
@@ -107,16 +98,16 @@
                                     <a href="#" class="selected btn">保护套装</a>
                                     <a href="#" class="btn">充电套装</a>
                                 </dd>
-                            </dl>
+                            </dl>-->
                         </div>
 
                         <div class="summary-wrap">
                             <div class="controls">
                                 <input autocomplete="off" type="text" value="1" minnum="1" class="itxt">
-                                <a href="#" class=" plus" id="plus">+</a>
-                                <a href="#" class=" mins" id="mins">-</a>
+                                <a  class=" plus" id="plus">+</a>
+                                <a  class=" mins" id="mins">-</a>
                             </div>
-                            <a href="#" class="btn  btn-danger addshopcar" id="addcart">加入购物车</a>
+                            <a  class="btn  btn-danger addshopcar" id="addcart">加入购物车</a>
                         </div>
                     </div>
                 </div>

@@ -40,6 +40,20 @@ $('#addcart').click(function () {
         var listName=$('#biaoti').html();
         var number=$('.itxt').val();
         var userName = $('#loginname').html();
+        var item_arry=[];
+
+        if($(".btn.selected").length != $("#specification").find("dl").length){
+            alert("请选择商品信息！")
+            return ;
+        }else {
+            $(".btn.selected").each(function () {
+
+                var title =$(this).parent().siblings(".title").children("i").html()
+                item_arry.push(title);
+                var item=$(this).html()
+                item_arry.push(item);
+            })
+        }
         if(userName!="你好！，请登录" && number!= 0){
                 $.ajax({
                     url: "/cart/addcart",
@@ -47,6 +61,7 @@ $('#addcart').click(function () {
                     data: {
                         listName: listName,
                         number:parseInt(number),
+                        item_arry:item_arry,
                     },
                     success: function (response) {
                         if (response.success) {
@@ -59,6 +74,8 @@ $('#addcart').click(function () {
                         }
                     }
                 });
+        }else{
+            location.href = "/login";
         }
 
     })
