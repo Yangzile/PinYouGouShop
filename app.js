@@ -25,7 +25,7 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 1000*60*5 } //有效期
+    cookie: { maxAge: 1000*60*3 } //有效期
     })
 );
 // 登录拦截

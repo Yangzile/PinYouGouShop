@@ -1,6 +1,7 @@
 $(function () {
 //点击注册事件
-    $("#registerBtn").on('click',function () {
+    $("#registerBtn").on('click',function (event) {
+        event.preventDefault();
         // 获得对象
         var passWord = $("#passWord");
         var userName = $("#userName");
@@ -47,10 +48,11 @@ $(function () {
             tip.css("color", "red");
             return false;
         }
+
         // 发送请求，路径/register/user
         $.ajax({
             url: "/register/user",
-            type: "post",
+            type: "POST",
             data: {
                 userName: userName.val(),
                 passWord: passWord.val(),
@@ -60,7 +62,7 @@ $(function () {
                 console.log('进入ajax');
                 if (response.success) {
                     alert("注册成功前端");
-                        location.href = "/login";
+                    location.href = "/login";
                 } else {
                     alert("注册失败前端" + response.message);
                     return false;

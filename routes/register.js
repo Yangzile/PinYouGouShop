@@ -55,7 +55,7 @@ router.post('/user', function(req, res, next) {
                         return res.send({ "error": 403, "message": "数据库异常！" });
                 } else {
                         console.log('注册成功后端');
-                    return  res.send({ "success": true });
+                        return  res.send({ "success": true });
                 }
             });
         }else {
